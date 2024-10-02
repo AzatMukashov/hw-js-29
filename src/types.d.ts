@@ -3,12 +3,12 @@ export interface IUser {
   name: string;
   email: string;
   urlImage: string;
-  price: number;
+  isActive: boolean;
 }
 
 export interface IUserMutation {
   name: string;
   email: string;
   urlImage: string;
-  price: number;
+  isActive: boolean;
 }
