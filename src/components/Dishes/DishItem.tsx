@@ -17,7 +17,7 @@ const DishItem: React.FC<Props> = ({dish}) => {
         <div className="col-5" style={imageStyle}/>
         <div className="col-6">
           <h5 className="card-title">{dish.name}</h5>
-          <p className="card-text">{dish.description}</p>
+          <p className="card-text">{dish.email}</p>
           <p className="card-text">Price: {dish.price} som</p>
         </div>
       </div>
