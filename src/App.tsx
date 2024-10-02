@@ -1,5 +1,11 @@
-import "./App.css";
+import ToolBar from './components/ToolBar/ToolBar.tsx';
 
-const App = () => <></>;
-
+const App = () => {
+  return (
+    <>
+      <header><ToolBar/></header>
+      <main></main>
+    </>
+  );
+};
 export default App;
