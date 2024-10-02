@@ -1,4 +1,3 @@
-import ToolBar from './components/ToolBar/ToolBar.tsx';
 import DishFrom from './components/DishFrom/DishFrom.tsx';
 import Dishes from './components/Dishes/Dishes.tsx';
 import { useState } from 'react';
@@ -33,7 +32,6 @@ const App = () => {
   }
   return (
     <>
-      <header><ToolBar/></header>
       <main className="container mt-4">
         <div className="row">
           <div className="col-4 mb-2">
