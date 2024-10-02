@@ -10,13 +10,13 @@ const UserForm: React.FC<Props> = ({addNewUser}) => {
     name: '',
     email: '',
     urlImage: '',
-    price: 0,
+    isActive: false,
   });
   const changeUser = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewUser(prevState => {
       return {
         ...prevState,
-        [e.target.name]: e.target.value,
+        [e.target.name]: e.target.type === 'checkbox' ? e.target.checked : e.target.value,
       }
     })
   }
@@ -34,13 +34,12 @@ const UserForm: React.FC<Props> = ({addNewUser}) => {
       addNewUser({
         id: new Date().toISOString(),
         ...newUser,
-        price: Number(newUser.price)
       });
       setNewUser({
         name: '',
         email: '',
         urlImage: '',
-        price: 0,
+        isActive: false,
       });
     }
   }
@@ -80,14 +79,12 @@ const UserForm: React.FC<Props> = ({addNewUser}) => {
         ></input>
       </div>
       <div className="form-group mb-2">
-        <label htmlFor="price">Price:</label>
-        <input name="price"
-               id="price"
-               type="number"
-               className="form-control"
-               min={1}
-               required
-               value={newUser.price}
+        <label htmlFor="isActive">Active:</label>
+        <input name="isActive"
+               id="isActive"
+               type="checkbox"
+               className="form-check-input"
+               checked={newUser.isActive}
                onChange={changeUser}
         ></input>
       </div>
