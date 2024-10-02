@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import { IDish, IDishMutation } from '../../types';
+import { IUser, IUserMutation } from '../../types';
 
 interface Props {
-  addNewDish: (newDish: IDish) => void;
+  addNewUser: (newUser: IUser) => void;
 }
 
-const DishFrom: React.FC<Props> = ({addNewDish}) => {
-  const [newDish, setNewDish] = useState<IDishMutation>({
+const UserForm: React.FC<Props> = ({addNewUser}) => {
+  const [newUser, setNewUser] = useState<IUserMutation>({
     name: '',
     email: '',
     urlImage: '',
     price: 0,
   });
-  const changeDish = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setNewDish(prevState => {
+  const changeUser = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNewUser(prevState => {
       return {
         ...prevState,
         [e.target.name]: e.target.value,
@@ -26,17 +26,17 @@ const DishFrom: React.FC<Props> = ({addNewDish}) => {
   }
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (newDish.name.trim().length === 0 && newDish.email.trim().length === 0) {
+    if (newUser.name.trim().length === 0 && newUser.email.trim().length === 0) {
       alert('write text');
-    } else if (!validMail(newDish.email)) {
+    } else if (!validMail(newUser.email)) {
       alert('write email');
     } else {
-      addNewDish({
+      addNewUser({
         id: new Date().toISOString(),
-        ...newDish,
-        price: Number(newDish.price)
+        ...newUser,
+        price: Number(newUser.price)
       });
-      setNewDish({
+      setNewUser({
         name: '',
         email: '',
         urlImage: '',
@@ -54,8 +54,8 @@ const DishFrom: React.FC<Props> = ({addNewDish}) => {
                type="text"
                className="form-control"
                required
-               value={newDish.name}
-               onChange={changeDish}
+               value={newUser.name}
+               onChange={changeUser}
         ></input>
       </div>
       <div className="form-group mb-2">
@@ -65,8 +65,8 @@ const DishFrom: React.FC<Props> = ({addNewDish}) => {
                id="email"
                className="form-control"
                required
-               value={newDish.email}
-               onChange={changeDish}
+               value={newUser.email}
+               onChange={changeUser}
         ></input>
       </div>
       <div className="form-group mb-2">
@@ -75,8 +75,8 @@ const DishFrom: React.FC<Props> = ({addNewDish}) => {
                id="urlImage"
                type="url"
                className="form-control"
-               value={newDish.urlImage}
-               onChange={changeDish}
+               value={newUser.urlImage}
+               onChange={changeUser}
         ></input>
       </div>
       <div className="form-group mb-2">
@@ -87,8 +87,8 @@ const DishFrom: React.FC<Props> = ({addNewDish}) => {
                className="form-control"
                min={1}
                required
-               value={newDish.price}
-               onChange={changeDish}
+               value={newUser.price}
+               onChange={changeUser}
         ></input>
       </div>
       <button className="btn btn-primary">Add</button>
@@ -96,4 +96,4 @@ const DishFrom: React.FC<Props> = ({addNewDish}) => {
   );
 };
 
-export default DishFrom;
+export default UserForm;

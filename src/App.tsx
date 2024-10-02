@@ -1,10 +1,10 @@
-import DishFrom from './components/DishFrom/DishFrom.tsx';
-import Dishes from './components/Dishes/Dishes.tsx';
+import UserForm from './components/UserForm/UserForm.tsx';
+import Users from './components/Users/Users.tsx';
 import { useState } from 'react';
-import { IDish } from './types';
+import { IUser } from './types';
 
 const App = () => {
-  const [dishes, setDishes] = useState<IDish[]>([
+  const [users, setUsers] = useState<IUser[]>([
     {
       id: '1',
       name: 'Nate',
@@ -27,19 +27,19 @@ const App = () => {
       urlImage: 'https://i.pinimg.com/236x/f6/1b/55/f61b55fbb87da15b4fe32742d1f0c2dc.jpg'
     }
   ]);
-  const addNewDish = (newDish: IDish) => {
-    setDishes(prevState => [newDish, ...prevState]);
+  const addNewUser = (newUser: IUser) => {
+    setUsers(prevState => [newUser, ...prevState]);
   }
   return (
     <>
       <main className="container mt-4">
         <div className="row">
           <div className="col-4 mb-2">
-            <DishFrom addNewDish={addNewDish}/>
+            <UserForm addNewUser={addNewUser}/>
           </div>
 
           <div className="col-4 mb-2">
-            <Dishes dishes={dishes}/>
+            <Users users={users}/>
           </div>
         </div>
       </main>
