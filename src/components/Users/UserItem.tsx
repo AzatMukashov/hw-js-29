@@ -18,7 +18,7 @@ const UserItem: React.FC<Props> = ({user}) => {
         <div className="col-6">
           <h5 className="card-title">{user.name}</h5>
           <p className="card-text">{user.email}</p>
-          <p className="card-text">Price: {user.price} som</p>
+          <p className="card-text">Active: {user.isActive ? 'Yes' : 'No'}</p>
         </div>
       </div>
     </div>
