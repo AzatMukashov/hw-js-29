@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import { IUser, IUserMutation } from "../../types";
+import React, { useState } from 'react';
+import { IUser, IUserMutation } from '../../types';
 
 interface Props {
   addNewUser: (newUser: IUser) => void;
 }
 
-const UserForm: React.FC<Props> = ({ addNewUser }) => {
+const UserForm: React.FC<Props> = ({addNewUser}) => {
   const [newUser, setNewUser] = useState<IUserMutation>({
-    name: "",
-    email: "",
-    role: "user",
+    name: '',
+    email: '',
+    role: 'user',
     isActive: false,
   });
   const changeUser = (
@@ -19,7 +19,7 @@ const UserForm: React.FC<Props> = ({ addNewUser }) => {
       return {
         ...prevState,
         [e.target.name]:
-          e.target.type === "checkbox" ? e.target.checked : e.target.value,
+          e.target.type === 'checkbox' ? e.target.checked : e.target.value,
       };
     });
   };
@@ -30,18 +30,18 @@ const UserForm: React.FC<Props> = ({ addNewUser }) => {
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (newUser.name.trim().length === 0 && newUser.email.trim().length === 0) {
-      alert("write text");
+      alert('write text');
     } else if (!validMail(newUser.email)) {
-      alert("write email");
+      alert('write email');
     } else {
       addNewUser({
         id: new Date().toISOString(),
         ...newUser,
       });
       setNewUser({
-        name: "",
-        email: "",
-        role: "user",
+        name: '',
+        email: '',
+        role: 'user',
         isActive: false,
       });
     }
