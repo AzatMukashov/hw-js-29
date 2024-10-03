@@ -9,10 +9,10 @@ const UserForm: React.FC<Props> = ({addNewUser}) => {
   const [newUser, setNewUser] = useState<IUserMutation>({
     name: '',
     email: '',
-    urlImage: '',
+    role: 'user',
     isActive: false,
   });
-  const changeUser = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const changeUser = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setNewUser(prevState => {
       return {
         ...prevState,
@@ -38,7 +38,7 @@ const UserForm: React.FC<Props> = ({addNewUser}) => {
       setNewUser({
         name: '',
         email: '',
-        urlImage: '',
+        role: 'user',
         isActive: false,
       });
     }
@@ -69,14 +69,17 @@ const UserForm: React.FC<Props> = ({addNewUser}) => {
         ></input>
       </div>
       <div className="form-group mb-2">
-        <label htmlFor="urlImage">Url image:</label>
-        <input name="urlImage"
-               id="urlImage"
-               type="url"
+        <label htmlFor="role">Role:</label>
+        <select name="role"
+               id="role"
                className="form-control"
-               value={newUser.urlImage}
+               value={newUser.role}
                onChange={changeUser}
-        ></input>
+        >
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+          <option value='editor'>Editor</option>
+        </select>
       </div>
       <div className="form-group mb-2">
         <label htmlFor="isActive">Active:</label>
