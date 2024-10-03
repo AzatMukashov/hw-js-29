@@ -8,23 +8,23 @@ const App = () => {
     {
       id: '1',
       name: 'Nate',
-      email: 'A to Z',
-      price: 200,
-      urlImage: 'https://i.pinimg.com/236x/03/eb/d6/03ebd625cc0b9d636256ecc44c0ea324.jpg'
+      email: 'email1@email.com',
+      isActive: false,
+      role: 'admin',
     },
     {
       id: '2',
-      name: 'Nate2',
-      email: 'A to Z2',
-      price: 2001,
-      urlImage: 'https://i.pinimg.com/236x/5f/40/6a/5f406ab25e8942cbe0da6485afd26b71.jpg'
+      name: 'Naten',
+      email: 'email2@email.com',
+      isActive: true,
+      role: 'user',
     },
     {
       id: '3',
-      name: 'Nate3',
-      email: 'A to Z3',
-      price: 2002,
-      urlImage: 'https://i.pinimg.com/236x/f6/1b/55/f61b55fbb87da15b4fe32742d1f0c2dc.jpg'
+      name: 'Naty',
+      email: 'email3@email.com',
+      isActive: false,
+      role: 'editor',
     }
   ]);
   const addNewUser = (newUser: IUser) => {
@@ -32,13 +32,13 @@ const App = () => {
   }
   return (
     <>
-      <main className="container mt-4">
+      <main className="container-fluid mt-4">
         <div className="row">
-          <div className="col-4 mb-2">
+          <div className="col-3 mb-2">
             <UserForm addNewUser={addNewUser}/>
           </div>
 
-          <div className="col-4 mb-2">
+          <div className="col-3 mb-2">
             <Users users={users}/>
           </div>
         </div>
